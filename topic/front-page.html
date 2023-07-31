@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="icon"  href="photo/favicon.png" style="background-color: transparent;">
+    <title>WY娛樂城</title>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+<style>
+    .slide {
+        width: 70%;
+    }
+
+    /* .carousel .carousel-item {
+        height: 600px;
+    } */
+
+    /* .carousel .carousel-item img {
+        min-height: 300px;
+        max-height: 500px;
+        object-fit: cover;
+    } */
+
+    /* 分隔線 */
+    .order {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+    }
+
+    .order .line {
+        display: inline-block;
+        width: 35%;
+        border-top: 3px solid #71787e;
+    }
+
+    .order .txt {
+        color: #555;
+
+        vertical-align: middle;
+    }
+
+    /* .btn {
+        position: relative;
+        top: 0px;
+        left: -900px;
+
+    } */
+
+    .container .btn:hover {
+        background-color: black;
+    }
+
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+    #myBtn:hover {
+        background-color: #555;
+    }
+</style>
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="position: fixed;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="photo/LOGO-small.png" style="width: 40px; background-color: transparent;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#section1">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section2">娛樂城文章</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3">遊戲規則</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section4">聯絡我們</a>
+                </li>
+            </ul>
+            <form class="d-flex justify-content-end">
+
+                <input data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-outline-success"
+                       type="button" value="進入遊戲" style="width:150px">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="myModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                     class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                    <path
+                            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <h3 class="modal-title">您是否滿18歲</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body bg-light">
+                <p>根據「兒童及少年福利與權益保障法」規定，本網站須滿18歲，若未滿18歲，請點[取消]離開本網站</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger"
+                        onclick="location.href='front-page.html'">取消</button>
+                <button type="button" class="btn btn-outline-danger"
+                        onclick="check_welcome()">確定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p></br></br>
+<div style="background-color: black;">
+    <marquee onmouseover="this.stop()" onmouseout="this.start()"
+             style="color:rgb(231, 231, 55); position: relative;"><img
+            src="https://cdn.glitch.me/91309a96-60cd-4df4-bd10-7fe501aa897d/%E8%AD%A6%E5%91%8A.jpg?v=1640952335015">
+        【重要公告】 「小賭怡情，大賭要命」;  十賭九輸;  「賭」網恢恢，「輸」而不漏;  不賭你就贏了，你賭，你就輸定了，
+        而要想不輸，只有一個辦法，就是遠離賭博。  千萬不要賭博!
+            <img
+                src="https://cdn.glitch.me/91309a96-60cd-4df4-bd10-7fe501aa897d/%E8%AD%A6%E5%91%8A.jpg?v=1640952335015">
+    </marquee>
+</div>
+<!--輪播-->
+<div id="carouselExampleIndicators" class="carousel slide container" data-bs-ride="carousel">
+    <!--輪播指示-->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                aria-label="Slide 6"></button>
+    </div>
+    <!--輪播內容-->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="photo/front.png" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="photo/baccarat.png" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="photo/dice.png" class="d-block w-100" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="photo/cow.png" class="d-block w-100" alt="Slide 4">
+        </div>
+        <div class="carousel-item">
+            <img src="photo/black-jack.png" class="d-block w-100" alt="Slide 5">
+        </div>
+        <div class="carousel-item">
+            <img src="photo/dagon.png" class="d-block w-100" alt="Slide 6">
+        </div>
+    </div>
+    <!--輪播控制-->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+<!--警報效果-->
+<div></div>
+<div></div>
+<!--內容區-->
+<main>
+    <!-- 關於 -->
+    <div id="section1" class="container mt-5">
+        <!-- <div class="row">
+            <div class="col-lg-4  bg-light"></div>
+            <div class="container col-lg-4 text-center"><h2>關於</h2></div>
+            <div class="col-lg-4  bg-light"></div>
+        </div> -->
+        </br>
+        </br>
+        <div class="order  col-12  col-md-12">
+            <span class="line"></span>
+            <span class="txt">關於</span>
+            <span class="line"></span>
+        </div>
+        <h2 class="text-center"><strong>創造一個不受限的環境，讓大家更輕鬆快樂地擁有娛樂世界，使心境獲得解壓釋放。</strong></h2>
+        <p class="text-center">【WY】娛樂城由黃億瑄和羅偉峻共同開發，喜愛撰寫程式的我們，將所學習程式語言結合，打造屬於我們的品牌。
+            受到疫情影響，促使我們架構線上娛樂城的開端，此平台讓更多人了解“賭博”這歷史悠久的娛樂文化，不是為了帶領入坑，
+            讓使用者能清楚各個遊戲運作模式，防止各樣詐騙及觸碰法律。期盼個使用者們適時找尋娛樂，本平台達到最高宗旨!</p>
+    </div>
+
+    <!-- 娛樂城文章 -->
+    <div id="section2" class="container">
+        </br>
+        </br>
+        <div class="order  col-12  col-md-12">
+            <span class="line"></span>
+            <span class="txt">娛樂城文章</span>
+            <span class="line"></span>
+        </div>
+        <div class="row">
+            <!-- 什麼是線上娛樂城? -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><strong>
+                            <font face="DFKai-sb">什麼是線上娛樂城?</font>
+                        </strong></h5>
+                        <p class="card-text">
+                            線上娛樂城簡單來說，是一個線上的博弈娛樂遊戲平台，可以稱為線上賭場，在實際賭場可以玩到的百家樂、骰寶、牛牛……等等遊戲，我們通通都可以透過線上的方式隨時做下注，不再像以往要到賭場、遊藝場或投注站才可以下注，只要透過電腦、手機平板，
+                            ...
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal1">
+                                閱讀更多
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 賺錢三準則 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><strong>
+                            <font face="DFKai-sb">賺錢三準則</font>
+                        </strong></h5>
+                        <p class="card-text">
+                        <div class="text-center">
+                            一、冷靜
+                            <br>
+                            二、耐心
+                            <br>
+                            三、不貪心
+                        </div>
+                        一、冷靜
+                        <br>
+                        當處於下風時，容易惶恐不安，
+                        ...
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal2">
+                            閱讀更多
+                        </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 「娛樂城」真的能賺錢嗎？小心受騙！ -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>
+                            <font face="DFKai-sb">「娛樂城」真的能賺錢嗎？小心受騙！</font>
+                        </strong></h5>
+                        <p class="card-text">
+                            娛樂城、現金版、博弈手遊…等線上賭場在台灣雖然尚未完全合法，卻仍是大受歡迎；演變至今，玩家只要利用手機平板及電腦都能隨時隨地於線上賭場體驗遊戲，除了許多資深玩家外，也吸引了許多從未接觸博弈的受眾。
+                            ...
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal3">
+                                閱讀更多
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 賭博&投資一線之隔，選對娛樂城也能安全投資 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><strong>
+                            <font face="DFKai-sb">賭博&投資一線之隔，選對娛樂城也能安全投資</font>
+                        </strong></h5>
+                        <p class="card-text">
+                            投資股票會有高點低點，每個人砸入的本金也都不同，也意味著不同的人對於可以賠錢的缺口上限不太相同，完全是看個人的經濟能力決定。那麼在網路博弈遊戲中也是相同的。
+                            ...
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal4">
+                                閱讀更多
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 為什麼娛樂城玩家、總是賠錢居多？ -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><strong>
+                            <font face="DFKai-sb">為什麼娛樂城玩家、總是賠錢居多？</font>
+                        </strong></h5>
+                        <p class="card-text">
+                            為何許多玩家在一開始自信爆棚憑著新手運，短時間賺取大筆彩金後，隨著時間慢慢的輸回去…甚至連本金都輸得精光？
+                            許多玩家常見的失利原因：</br>
+                            ⭐太急著在娛樂城發財</br>
+                            ⭐忘了停損、心態炸裂...
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal5">
+                                閱讀更多
+                            </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 娛樂城投注重「質」、不重「量」 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><strong>
+                            <font face="DFKai-sb">娛樂城投注重「質」、不重「量」</font>
+                        </strong></h5>
+                        <p class="card-text">
+                            玩網路博弈遊戲，千萬不要想一步登天，因為往往這樣的貪心都是讓自己摔得很慘。耐心觀察與等待，或許是身為娛樂城網路博弈玩家的你，必須要具備的心理條件。當然，對於金錢的規劃肯定也是需要一定的敏感度才可以。
+                            ...
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal6">
+                                閱讀更多
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal1" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">什麼是線上娛樂城?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    線上娛樂城簡單來說，是一個線上的博弈娛樂遊戲平台，可以稱為線上賭場，在實際賭場可以玩到的百家樂、骰寶、牛牛……等等遊戲，我們通通都可以透過線上的方式隨時做下注，不再像以往要到賭場、遊藝場或投注站才可以下注，只要透過電腦、手機平板，隨時隨地都可以下注，還不怕疫情病毒，不用人與人接觸，在線娛樂城通常提供的賠率和回報率比陸上娛樂場高不少。且投注的種類標的相對齊全又豐富！高賠率相對獲利也高，對於很多玩家是個好消遣的方式。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal2" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">賺錢三準則</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">
+                        一、冷靜
+                        <br>
+                        二、耐心
+                        <br>
+                        三、不貪心
+                        <br>
+                    </p>
+                    一、冷靜
+                    <br>
+                    當處於下風時，容易惶恐不安，害怕將本錢輸得精光。沈著冷靜在此時更顯重要。扭轉局勢只是時機問題，反敗為勝即手到擒來。
+                    <br>
+                    二、耐心
+                    <br>
+                    牌局中有時會陷入僵局，所輸不多，但無法連贏而致所輸數目不斷增加！這時，除了要冷靜之外，還要耐心，切記不可亂加注，靜心等待。賭博不能使你大富大貴，更不要奢望馬上贏大錢。最後一點則適用於所有遊戲，能令玩家贏錢的必循原則，非「不貪心」莫屬。
+                    <br>
+                    三、不貪心
+                    <br>
+                    在遊戲局中，只有一半的贏錢機會！所以要善用機會，贏時不得意忘形，輸時不自怨自艾。贏錢的原則，不能貪心。
+                    <br>
+                    當遊戲賭至處於下風，不用怕，遲早會贏回來的。終於連贏數次追至和局後，就該立即收手。在投注時，連輸五次時，必須停止投注，並且開始記錄「若繼續投注，則會……」以假設性自我提問法，直至出現贏局，方能再次重回投注。心態是否實際和正確，在很大程度上決定了你能否自律，以及能否最終成為出色賭家，所以一定要端正心態，摒棄不現實的想法。
+
+                    最重要的事項，無非是健全的心態，冷靜、耐心、不貪心。每局遊戲都有輸贏，贏了要立即走，輸了就慢慢追上，無需追贏只要追和！以「和」為貴！
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal3" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">「娛樂城」真的能賺錢嗎？小心受騙！</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    娛樂城、現金版、博弈手遊…等線上賭場在台灣雖然尚未完全合法，卻仍是大受歡迎；演變至今，玩家只要利用手機平板及電腦都能隨時隨地於線上賭場體驗遊戲，除了許多資深玩家外，也吸引了許多從未接觸博弈的受眾。
+                    <br>
+                    <br>
+                    認識常見「詐騙娛樂城手法」、防上當！
+                    <br>
+                    <br>
+                    娛樂城繼能娛樂又能賺錢，自然會吸引許多詐騙集團藉機詐財，娛樂城詐騙手法越來越多元，非常的猖獗，別說新手玩家了，就連資深娛樂城玩家都難以招架，想要踏入新平台的時候，還得從滿滿的詐騙陷阱中找尋安全平台，更是難上加難，像是百家樂帶牌群組、使用FB或IG廣告高調分享高獲利、獲利獎金無法提領及狀號異常……等等是常見的娛樂城詐騙案例。
+                    <br>
+                    <br>
+                    遇到詐騙娛樂城該如何處理？
+                    <br>
+                    <br>
+                    就請玩家一定要把握24H內辦理以下三步驟<br>
+                    ⭐第一時間，撥打165反詐騙專線通報<br>
+                    ⭐聯繫相關銀行帳戶，並請警方協助辦理<br>
+                    ⭐前往警局報案，最短時間內將帳戶列為警示帳戶<br>
+                    其實只要了解正確報案流程與冷靜地收集資料，就越有機會解決甚至是追回被騙款項！
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal4" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">賭博&投資一線之隔，選對娛樂城也能安全投資</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    投資股票會有高點低點，每個人砸入的本金也都不同，也意味著不同的人對於可以賠錢的缺口上限不太相同，完全是看個人的經濟能力決定。那麼在網路博弈遊戲中也是相同的。
+                    普羅大眾對於線上賭場等博弈，不外乎都有十賭九輸、傾家蕩產等負面印象，卻對台灣彩卷、股票、期貨等投資抱持正面支持，好像買了股票就會賺錢似的？實際上同樣是有風險的投入資金，其實選對娛樂城也能是安全投資。
+                    <br>
+                    <br>
+                    如何選擇安全穩定、有保障的娛樂城平台？
+                    <br>
+                    <br>
+                    當然並非每個娛樂城平台都是詐騙集團，台灣線上賭場中，確實也有著不少口碑良好、系統穩定的平台，一個好的網路賭場應該是值得你的信任，不只推出的娛樂城優惠很多，而且娛樂城反水趴數也很高。最重要的是玩家的資料都只局限於該網路賭場內部使用而已，絕對不會有資料外洩的問題。因此當玩家真正想接觸線上賭場平台，不彷多多利用網路資源多看玩家評價、平台口碑、有無不出金紀錄等資訊，來路不明的小型代理、官網設計粗糙的千萬不要玩！
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal5" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">為什麼娛樂城玩家、總是賠錢居多？</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    為何許多玩家在一開始自信爆棚憑著新手運，短時間賺取大筆彩金後，隨著時間慢慢的輸回去…甚至連本金都輸得精光？
+                    </br>
+                    許多玩家常見的失利原因：
+                    </br>
+                    </br>
+                    ⭐太急著在娛樂城發財
+                    </br>
+                    </br>
+                    ⭐忘了停損、心態炸裂
+                    </br>
+                    </br>
+                    ⭐不懂的利用遊戲技巧、數據分析
+                    <br>
+                    <br>
+                    玩「娛樂城」資金配妥、也能穩穩賺
+                    <br>
+                    <br>
+                    不論博弈，資金分配於許多投資上，也是相當重要的一點，沒有人能夠天天靠著運氣贏下大筆獎金，更何況是投資都有風險，依照自身本金需求狀況出發分配，才會是正確比例；不但能防止真的不幸失利時錯手不及，還有一筆預備金可使用。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal6" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">娛樂城投注重「質」、不重「量」</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    玩網路博弈遊戲，千萬不要想一步登天，因為往往這樣的貪心都是讓自己摔得很慘。耐心觀察與等待，或許是身為娛樂城網路博弈玩家的你，必須要具備的心理條件。當然，對於金錢的規劃肯定也是需要一定的敏感度才可以。注碼不下重額，而是平均分配，整合各大遊戲技巧使用，技巧玩法百百種，沒有最好最有效率的，只有最適合自己的，賭博的最佳狀態是心平氣和，若處於情緒中或感覺不佳時，先克制自己，消除造成不良狀態的起因，因為身心狀態大大影響賭博過程和結果，容易受到錯誤心態的影響，作出許多錯誤決定。不良狀態也影響你自律，成就小事需要小紀律，成就大事需要大紀律，在賭博上你需要完全的自控。這才是在線上賭場賺錢的首要步驟。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遊戲規則 -->
+    <div id="section3" class="container">
+        </br>
+        </br>
+        <div class="order">
+            <span style="white-space:pre"> </span><span class="line"></span>
+            <span style="white-space:pre"> </span><span class="txt">遊戲規則</span>
+            <span style="white-space:pre"> </span><span class="line"></span>
+        </div>
+        <br>
+        <center>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                百家樂
+            </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                骰寶
+            </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                牛牛
+            </button>
+<!--            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"-->
+<!--                    data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                black jack-->
+<!--            </button>-->
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample">
+                龍虎鬥
+            </button>
+        </center>
+        <br>
+        <div class="collapse" id="collapseExample1">
+            <div class="card card-body text-center">
+                <h3><strong>
+                    <font face="DFKai-sb">目標</font>
+                </strong></h3>
+                玩家可任意選擇莊家或閒家下注，也可選擇和局。<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">玩法</font>
+                </strong></h3>
+                百家樂一般用8副牌，洗牌後8副牌放在發牌箱內。莊、閒家雙方每局均會收到至少兩張牌，但不超過三張。第一及第三張牌發給「閒家」，第二及第四張牌則發給「莊家」。至於要否補牌（又稱博牌，即發第三張牌）則根據補牌規則決定(閒家與莊家補牌規則不同)<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">補牌規則</font>
+                </strong></h3>
+                莊閒任何一方兩牌合計共為「8或9點」，雙方都不須補牌，即定勝負（雙方同持8點或同持9點為和局）。否則先行「閒家補牌規則」，再行「莊家補牌規則」。<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">閒家補牌規則</font>
+                </strong></h3>
+                0~5點:補一張牌<br>
+                6點以上: 不須補牌<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">莊家補牌規則</font>
+                </strong></h3>
+                0~2點: 補一張牌<br>
+                3點: 如果閒家補得的第三張牌（非三張牌點數相加，下同）是 8 點，不須補牌，其他則需補牌<br>
+                4點: 如果閒家補得的第三張牌是「0、1、8、9」點，不須補牌，其他則需補牌<br>
+                5點: 如果閒家補得的第三張牌是「0、1、2、3、8、9」點，不須補牌，其他則需補牌<br>
+                6點: 如果閒家補得的第三張牌是「6或7」點，補一張牌，其他則不需補牌<br>
+                7點以上:不須補牌<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">賠率</font>
+                </strong></h3>
+                因莊家跟閒家補牌規則不同，贏的機率也不同，假設使用8副牌，所有投注情況的期望值均為負數，但以下注莊勝最佳。百家樂莊家的優勢只有1%左右，和大多數賭場遊戲相比偏低。莊家賠率為1:0.95，閒家為1:1，和為1:8。<br>
+                籌碼押注莊家，贏牌為莊，則可拿押注籌碼加上押注籌碼乘以0.95總籌碼數。反之，贏牌為閒家，則輸錢。<br>
+                籌碼押注閒家，贏牌為閒，則可拿押注籌碼加上押注籌碼乘以1總籌碼數。反之，贏牌為莊家，則輸錢。<br>
+                籌碼押注莊家，牌型為和，則可拿押注籌碼加上押注籌碼乘以8總籌碼數。
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample2">
+            <div class="card card-body text-center">
+                <h3><strong>
+                    <font face="DFKai-sb">目標</font>
+                </strong></h3>
+                骰寶是由各閒家向莊家下注。<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">玩法</font>
+                </strong></h3>
+                每次下注前，莊家先把三顆骰子放在有蓋的器皿內搖晃。當各閒家下注完畢，莊家便打開器皿並派彩。最常見的賭注是買骰子點數的大小，骰寶是莊家永遠處於有利位置的賭博遊戲。閒家無法以技術提高得勝的機會，長遠來說莊家必勝。各種投注中以「大、小」對閒家最為有利，但莊家仍然擁有優勢。<br>
+                <br>
+                <h3><strong>
+                    <font face="DFKai-sb">投注方式</font>
+                </strong></h3>
+                大: 總點數為：11或更大(豹子通殺) 。賠率: 1賠1<br>
+                小: 總點數為：10或更小(豹子通殺) 。賠率: 1賠1<br>
+                全圍: 圍一至圍六任何一種。賠率: 1賠30
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample3">
+            <div class="card card-body text-center">
+              <h3><strong>
+                        <font face="DFKai-sb">目標</font>
+                    </strong></h3>
+                    一人作莊，其餘每人先下賭注，稱為閒家。莊家、閒家皆可拿五張牌，要自行分為「組牌」三張，「點數牌」兩張。<br>
+                    <br>
+                    <h3><strong>
+                            <font face="DFKai-sb">玩法</font>
+                        </strong></h3>
+                    J、Q、K稱為「人頭」，算十點，其餘皆依照牌本身的點數計算，只要其中三張牌（組牌）的點數加起來是十點、二十點、三十點，稱為「有妞」。<br>
+                    閒家「有妞」者可與莊家比較牌型，如勝過莊家，即可向莊家索償。無妞者則需付出注金。<br>
+                    「有妞」者可以計算另外兩張牌（點數牌）的點數，超過十點，則取零頭，最多不能超過十點，如16點，為「6」，12點為「2」。<br>
+                    妞妞：點數牌兩張和為10的倍數，即為「妞妞」，依遊戲類型索取倍數注金。
+                </div>
+        </div>
+<!--        <div class="collapse" id="collapseExample4">-->
+<!--            <div class="card card-body text-center">-->
+<!--                <h3><strong>-->
+<!--                    <font face="DFKai-sb">玩法</font>-->
+<!--                </strong></h3>-->
+<!--                1.洗牌-->
+<!--                <br>-->
+<!--                2.向各玩家分別派發一張牌-->
+<!--                <br>-->
+<!--                3.莊家發給自己一張牌-->
+<!--                <br>-->
+<!--                4.向各玩家派第二張牌-->
+<!--                <br>-->
+<!--                5.莊家再發給自己一張牌（不是所有賭場都會有這個步驟，大部份賭場都是在所有玩家結束要牌後才發第二張明牌給莊家）-->
+<!--                <br>-->
+<!--                6.如果莊家明牌是A、荷官會詢問玩家是否購買保險-->
+<!--                <br>-->
+<!--                7.玩家可進行加注、投降、分牌等動作-->
+<!--                <br>-->
+<!--                8.莊家逐位詢問玩家是否加牌、直至閒家不加牌才詢問下一位玩家，輪流詢問玩家直至最後一位玩家加牌完成-->
+<!--                <br>-->
+<!--                9.莊家如不足17點便需加牌直至超過或等於17點-->
+<!--                <br>-->
+<!--                10.對未有爆牌的玩家，比點數大小，大者勝，可得賠金; 如莊家爆牌、未有爆牌的玩家便可得賠金<br>-->
+<!--                <br>-->
+<!--                <h3><strong>-->
+<!--                    <font face="DFKai-sb">點數計算</font>-->
+<!--                </strong></h3>-->
+<!--                A可作一點或十一點，2-10作該牌之點數，J、Q、K作10點。<br>-->
+<!--                <br>-->
+<!--                <h3><strong>-->
+<!--                    <font face="DFKai-sb">特殊規則</font>-->
+<!--                </strong></h3>-->
+<!--                保險:-->
+<!--                當莊家面牌是A，閒家可以注碼的一半選擇是否購買保險，以賭莊家的首二張牌總和會不會是21點，如莊家不是21點便立即沒收保險金；反之若是21點便可獲得保險金額的2倍賠償。<br>-->
+<!--                <br>-->
+<!--                雙倍下注:-->
+<!--                若閒家首兩張牌點數之和為11點，可以選擇加倍投注，但加注後僅獲發1張牌。有些賭局容許閒家在首兩張牌總和為10點（甚至任何點數）時加注。<br>-->
+<!--                <br>-->
+<!--                分牌:-->
+<!--                若閒家首兩張牌點數相同，可以選擇分牌，並須加注。分出每門的下注金額須與原注相同。若閒家打兩張A分開，則每張A只獲發1張牌，不可再要牌。有些分牌後不可再分牌。<br>-->
+<!--                <br>-->
+<!--                投降:-->
+<!--                在所有閒家未要牌之前閒家可選擇投降，並取回一半注碼，俗稱投降輸一半。-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="collapse" id="collapseExample5">
+            <div class="card card-body text-center">
+ <h3><strong>
+                        <font face="DFKai-sb">玩法</font>
+                    </strong></h3>
+                    兩張卡牌抽出後，玩家可賭哪張卡牌面更大——是龍還是虎，即閒家還是莊家。和局時，龍虎鬥沒有開戰選項，只有標準的和注。<br>
+                    <br>
+                    <h3><strong>
+                            <font face="DFKai-sb">賠率</font>
+                        </strong></h3>
+                    莊家賠率為1:1，閒家為1:1，和為1:8。若開牌結果為和時，則押和的注碼只能拿回一半。
+                </div>
+        </div>
+
+
+    </div>
+
+
+    <div id="section4" class="container">
+        </br>
+        </br>
+        <div class="order">
+            <span style="white-space:pre"> </span><span class="line"></span>
+            <span style="white-space:pre"> </span><span class="txt">聯絡我們</span>
+            <span style="white-space:pre"> </span><span class="line"></span>
+        </div>
+        <br>
+    </div>
+    <div class="container" id="us">
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <div class="card ">
+                    <img src="https://cdn.glitch.me/91309a96-60cd-4df4-bd10-7fe501aa897d/%E7%BE%85.jpg?v=1640955198228"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            <button type="button" class="sb-apple"
+                                    onclick="location.href='https://www.facebook.com/profile.php?id=100000431348422'">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                            </button>
+                            <button type="button" class="sb-apple" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="jacky861216@gmail.com" onclick="location.href='mailto:jacky861216@gmail.com'">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path
+                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                </svg>
+                            </button><strong> 羅偉峻</strong><br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card " style="width: 100%; height:100%;">
+                    <img src="https://cdn.glitch.me/91309a96-60cd-4df4-bd10-7fe501aa897d/%E9%BB%83.jpg?v=1640954169930"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            <button type="button" class="sb-apple"
+                                    onclick="location.href='https://www.facebook.com/profile.php?id=100003551078542'">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                            </button>
+                            <button type="button" class="sb-apple" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="a1999117@gmail.com" onclick="location.href='mailto:a1999117@gmail.com '">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path
+                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                </svg>
+                            </button><strong> 黃億瑄</strong><br />
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<hr>
+
+<!--頁尾-->
+<footer class=" bg-dark ">
+    <div class="container">
+        <br>
+        <p class="m-0 text-center text-white">Create by 羅偉峻 and 黃億瑄 </p><br />
+
+        <p class="m-0 text-center text-white">Copyright © 2022 TOPIC </p><br />
+    </div>
+</footer>
+</div>
+
+</body>
+
+<script>
+    mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function check_welcome() {
+        let user = localStorage.getItem('username');
+
+        if (user === "" || user == null) {
+            user = prompt("请输入你的名字:","");
+            if (user!=="" && user!=null){
+                localStorage.setItem('username', user);
+                localStorage.setItem('money','1000');
+                location.href='index-first.html'
+            }
+        }else {
+            let money = Number.parseInt(localStorage.getItem('money'));
+            if(isNaN(money)) {
+                localStorage.setItem('money','1000');
+                money = '1000'
+            }
+            location.href='index-first.html'
+        }
+    }
+
+</script>
+
+</html>

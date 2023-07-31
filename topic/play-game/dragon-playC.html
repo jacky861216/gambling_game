@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon"  href="../photo/favicon.png" style="background-color: transparent;">
+    <title>龍虎鬥C</title>
+</head>
+
+<body onLoad="check_welcome()" style="background: url('../photo/table1.jpg');background-repeat: no-repeat; background-size: 100%;">
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../front-page.html"><img src="../photo/LOGO-small.png" style="width: 40px; background-color: transparent;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index-first.html">熱門遊戲</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index-baccarat.html">百家樂</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index-dice.html">骰寶</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index-cow.html">牛牛</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../index-dragon.html">龍虎鬥</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<button class="btn btn-primary" style="position:fixed;top :50%;right:0%;" onclick="make_sure();">
+    確認下注
+</button>
+<p style="position: absolute; bottom: 0; left:30%;">名稱：<input id='username' class="text col-2 col-sm-4 "  disabled="disabled" value="我是暱稱" style=" background-color: black; color: white; ">
+    籌碼：<input  id="money" class="text col-2 col-sm-4"  disabled="disabled" value="0" style="background-color: black; color: white; "></p>
+
+<div id="bet_how_much" style="font-size: 60px;position:absolute; left:38%;">下了多少</div>
+
+
+<div id="player-pockers" style="position: absolute; left:30%; top:35%; font-size:30px;">
+
+</div>
+
+<div id="banker-pockers" style="position: absolute; left: 60%; top:35%;font-size:30px;">
+</div>
+
+
+
+
+<div id="result" style="position:absolute; left:40%; top: 55%;font-size: 60px;">結果</div>
+<form>
+
+    <div class="col-2" style="position: absolute; bottom: 15% ; left: 21%;">
+        <p style=" font-size: large;" >虎<input id="player_input" class="col-12 col-md-12" type="text" inputmode="numeric" min="0" placeholder="1:1" onkeypress="return event.charCode >= 48 && event.charCode <=57 && beting"></p>
+
+    </div>
+    <div class="col-2" style="position: absolute; bottom: 15% ; left: 41%;">
+        <p style=" font-size: large;" >和<input id="tie_input" class="col-12 col-md-12"  type="text" inputmode="numeric"   min="0" placeholder="1:8" onkeypress="return event.charCode >= 48 && event.charCode <=57 && beting"  ></p>
+    </div>
+    <div class="col-2" style="position: absolute; bottom: 15% ; left: 61%;">
+        <p style=" font-size: large;" >龍<input id="banker_input" class="col-12 col-md-12"  type="text" inputmode="numeric"  min="0" placeholder="1:1" onkeypress="return event.charCode >= 48 && event.charCode <=57 && beting" ></p>
+
+    </div>
+</form>
+
+</body>
+
+<script>
+    var a, a1, b, b1, banker, c, c1, player, poker;
+    var money = 0;
+    var player_pockers;
+    var banker_pockers;
+    var end = false;
+    var beting = false;
+    var bet_seconds = 5;
+    var timer_id;
+    var bet_money_player,bet_money_banker,bet_money_tie;
+    var click_button=false;
+    var bet_how_much;
+    var has_bank_pair = false;
+    var has_player_pair = false;
+    var win_money=0;
+    var bet_money;
+
+    function update_money_on_focus_in(id) {
+        if (beting) {
+            bet_money = Number.parseInt(document.getElementById(id).value);
+
+            if (!isNaN(bet_money)) {
+                money += bet_money;
+                document.getElementById('money').value = money;
+            }
+        }
+    }
+
+    function update_money_on_focus_out(id) {
+
+        bet_money =  Number.parseInt(document.getElementById(id).value);
+
+        if (!isNaN(bet_money) && money >= bet_money && beting && money > 0) {
+            money -= bet_money;
+            document.getElementById('money').value = money;
+        } else  {
+            document.getElementById(id).value = ''
+        }
+
+        if (!beting) {
+            document.getElementById(id).value = ''
+        }
+    }
+
+    function check_welcome() {
+        let user = localStorage.getItem('username');
+        if (user === "" || user == null) {
+            user = prompt("请输入你的名字:","");
+            if (user!=="" && user!=null){
+                localStorage.setItem('username', user);
+                localStorage.setItem('money','1000');
+                money = 1000
+            }
+        }else {
+            money= Number.parseInt(localStorage.getItem('money'));
+            if(isNaN(money)) {
+                localStorage.setItem('money', '1000');
+            }
+        }
+        document.getElementById('money').value = money;
+        document.getElementById('username').value = user;
+        bet()
+    }
+
+    function check_input_valid(id) {
+        var x = document.getElementById(id).value;
+        alert(x);
+        document.getElementById("demo").innerHTML = "你输入的是: " + x;
+    }
+
+    function bet() {
+        click_button=false;
+        bet_money=0;
+        bet_how_much = document.getElementById('bet_how_much');
+        bet_how_much.innerText = '本局還未下注';
+
+        player_pockers = document.getElementById('player-pockers');
+        player_pockers.innerText = ''
+
+
+        banker_pockers = document.getElementById('banker-pockers');
+        banker_pockers.innerText = ''
+
+        player_pockers = document.getElementById('player-pockers');
+        player_pockers.innerText = '虎：'
+        player_pockers.appendChild(get_back_image('1'));
+
+
+
+        banker_pockers = document.getElementById('banker-pockers');
+        banker_pockers.innerText = '龍：'
+        banker_pockers.appendChild(get_back_image('6'));
+
+
+        beting = true;
+        document.getElementById('player_input').disabled = false;
+        document.getElementById('tie_input').disabled = false;
+        document.getElementById('banker_input').disabled = false;
+        bet_seconds = 5
+        document.getElementById('result').innerText =  "下注中...."+bet_seconds;
+        timer_id = setInterval(bet_seconds_update,1000);
+    }
+
+    function bet_seconds_update() {
+        if (beting) {
+            bet_seconds -= 1;
+            document.getElementById('result').innerText =  "下注中...."+bet_seconds;
+
+        }
+        if (bet_seconds === 0) {
+
+
+
+            beting = false
+            window.clearInterval(timer_id)
+
+            document.getElementById('player_input').disabled = true;
+            document.getElementById('tie_input').disabled = true;
+            document.getElementById('banker_input').disabled = true;
+
+
+            if(!click_button){
+                document.getElementById('player_input').value = "";
+                document.getElementById('tie_input').value = "";
+                document.getElementById('banker_input').value = "";
+                bet_how_much = document.getElementById('bet_how_much');
+                bet_how_much.innerText = '時間到無下注';
+            }
+
+            document.getElementById('result').innerText =  "......開牌......";
+            setTimeout(deal_pocker,1000)
+        }
+    }
+
+    function deal_pocker() {
+
+        document.getElementById('result').innerText = "";
+        poker = [["c01", "c02", "c03", "c04", "c05", "c06", "c07", "c08", "c09", "c10", "c11", "c12", "c13"],
+            ["d01", "d02", "d03", "d04", "d05", "d06", "d07", "d08", "d09", "d10", "d11", "d12", "d13"],
+            ["h01", "h02", "h03", "h04", "h05", "h06", "h07", "h08", "h09", "h10", "h11", "h12", "h13"],
+            ["s01", "s02", "s03", "s04", "s05", "s06", "s07", "s08", "s09", "s10", "s11", "s12", "s13"]];
+
+        a = randomChoice(poker);
+        a1 = randomChoice(poker);
+        b = randomChoice(a);
+        b1 = randomChoice(a1)
+        c = Number.parseInt(randomChoice(b.slice(-2)[0])) * 10 + Number.parseInt(randomChoice(b.slice(-1)[0]));
+        c1 = Number.parseInt(randomChoice(b1.slice(-2)[0])) * 10 + Number.parseInt(randomChoice(b1.slice(-1)[0]));
+        console.log(b, b1);
+        console.log(c, c1);
+
+
+
+        //e b2 f b3
+        player_pockers = document.getElementById('player-pockers');
+        player_pockers.innerText = ''
+        player_pockers.innerText = '虎：'
+        player_pockers.appendChild(get_pocker_image(b1));
+
+
+        banker_pockers = document.getElementById('banker-pockers');
+        banker_pockers.innerText = ''
+        banker_pockers.innerText = '龍：'
+        banker_pockers.appendChild(get_pocker_image(b));
+
+        end = false;
+
+
+
+
+        setTimeout(check_end, 1000);
+    }
+
+
+
+    function check_end() {
+        if (end) {
+            return
+        }
+        end = add_poker()
+        if (end) {
+
+
+            console.log(player, banker);
+            win_money=0;
+
+            if (banker > player) {
+                document.getElementById('result').innerText = "......龍贏......"
+                console.log("banker win");
+                bet_money_banker =  Number.parseInt(document.getElementById('banker_input').value);
+                if (!isNaN(bet_money_banker)) {
+                    money += bet_money_banker * 2;
+                    win_money +=bet_money_banker*2;
+                }
+
+
+            } else {
+                if (banker < player) {
+                    document.getElementById('result').innerText = "......虎贏......"
+                    console.log("player win");
+
+                    bet_money_player =  Number.parseInt(document.getElementById('player_input').value);
+                    if (!isNaN(bet_money_player)) {
+                        money += bet_money_player *2;
+                        win_money +=bet_money_player*2;
+                    }
+
+                } else {
+                    if (banker === player) {
+                        document.getElementById('result').innerText = "......和......"
+                        console.log("tie");
+                        bet_money_banker =  Number.parseInt(document.getElementById('banker_input').value);
+                        if (!isNaN(bet_money_banker)) {
+                            money += bet_money_banker * 0.5;
+                            win_money +=bet_money_banker*0.5;
+                        }
+                        bet_money_player =  Number.parseInt(document.getElementById('player_input').value);
+                        if (!isNaN(bet_money_player)) {
+                            money += bet_money_player *0.5;
+                            win_money += bet_money_player *0.5;
+                        }
+                        bet_money_tie =  Number.parseInt(document.getElementById('tie_input').value);
+                        if (!isNaN(bet_money_tie)) {
+                            money += bet_money_tie *9;
+                            win_money += bet_money_tie *9;
+                        }
+
+                    }
+                }
+            }
+
+            if(bet_money===0){
+                bet_how_much = document.getElementById('bet_how_much');
+                bet_how_much.innerText = '您本局無下注';
+            }else{
+                if(win_money >=bet_money){
+                    bet_how_much = document.getElementById('bet_how_much');
+                    bet_how_much.innerText = '您贏了'+(win_money-bet_money)+'元';
+                }else if(win_money < bet_money){
+                    bet_how_much = document.getElementById('bet_how_much');
+                    bet_how_much.innerText = '您輸了'+(bet_money-win_money)+'元';
+                }
+            }
+
+
+            localStorage.setItem('money',''+money);
+            document.getElementById('money').value = money;
+            document.getElementById('player_input').value='';
+            document.getElementById('banker_input').value='';
+            document.getElementById('tie_input').value='';
+            setTimeout(bet, 3000);
+        } else {
+            setTimeout(check_end, 1000);
+        }
+    }
+
+    function add_poker() {
+        banker = c;
+        player = c1;
+        return true;
+    }
+
+    function randomChoice(arr) {
+        return arr[Math.floor(arr.length * Math.random())];
+    }
+    function get_pocker_image(pocker) {
+        var img = new Image();
+        img.src = './poker_dragon/'+pocker+'.jpg';
+        img.width = 90;
+        img.height = 120;
+        return img
+    }
+    function get_back_image(back) {
+        var img = new Image();
+        img.src = './poker/back'+back+'.png';
+        img.width = 90;
+        img.height = 120;
+        return img
+    }
+
+    function make_sure(){
+        bet_money=0;
+        console.log("確認");
+        bet_money_player =  Number.parseInt(document.getElementById("player_input").value);
+        bet_money_banker =  Number.parseInt(document.getElementById("banker_input").value);
+        bet_money_tie =  Number.parseInt(document.getElementById("tie_input").value);
+
+        if(!isNaN(bet_money_player)){
+            bet_money += bet_money_player;
+
+        }
+        if(!isNaN(bet_money_banker)){
+            bet_money +=bet_money_banker;
+        }
+        if(!isNaN(bet_money_tie)){
+            bet_money +=bet_money_tie;
+        }
+        if (!isNaN(bet_money) && money >= bet_money && beting && money > 0) {
+            click_button=true;
+            money -= bet_money;
+            document.getElementById('money').value = money;
+            document.getElementById('player_input').disabled = true;
+            document.getElementById('tie_input').disabled = true;
+            document.getElementById('banker_input').disabled = true;
+            bet_how_much = document.getElementById('bet_how_much');
+            bet_how_much.innerText = '您下注了'+bet_money+"元";
+
+        }else if(beting && money===0){
+
+            document.getElementById('player_input').value = "";
+            document.getElementById('tie_input').value = "";
+            document.getElementById('banker_input').value = "";
+            alert("你破產囉！快去領紅包！！");
+        }else if (!isNaN(bet_money) && money < bet_money && beting && money > 0){
+            alert("你沒有足夠的錢!");
+            document.getElementById('player_input').value = "";
+            document.getElementById('tie_input').value = "";
+            document.getElementById('banker_input').value = "";
+        }
+
+        if (!beting) {
+            alert("現在不能下注!");
+
+        }
+
+
+    }
+
+
+</script>
+
+</html>
